@@ -1,21 +1,40 @@
-import { Box, Heading, Icon } from "@chakra-ui/react";
-import { MdStar } from "react-icons/md";
+import {
+  Box,
+  Button,
+  Heading,
+  Popover,
+  PopoverContent,
+  PopoverFooter,
+  PopoverHeader,
+  PopoverTrigger,
+  Portal,
+} from '@chakra-ui/react';
 
 const Header = () => {
   return (
     <Box
-      display={"flex"}
-      alignItems={"center"}
-      gap={"16px"}
-      padding={"12px 32px"}
+      display={'flex'}
+      alignItems={'center'}
+      gap={'16px'}
+      height={'56px'}
+      padding={'12px 32px'}
       borderBottom={`1px solid #DEE3E9`}
       style={{
-        background: "#FFFFFF",
+        background: '#FFFFFF',
       }}
     >
-      <Heading>{"SAY TALK"}</Heading>
+      <Heading>{'SAY TALK'}</Heading>
       <Box flex={1} />
-      <Icon as={MdStar}></Icon>
+      <Popover>
+        <PopoverTrigger>
+          <Button borderRadius={20}>U</Button>
+        </PopoverTrigger>
+        <Portal>
+          <PopoverContent width={'auto'}>
+            <Button>LOGOUT</Button>
+          </PopoverContent>
+        </Portal>
+      </Popover>
     </Box>
   );
 };
